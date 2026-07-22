@@ -5,8 +5,17 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Core\Router;
+use App\Core\Database;
 use App\Controllers\HomeController;
 use App\Controllers\AboutController;
+
+// Adatbázis-kapcsolat tesztelése
+try {
+    $db = Database::getConnection();
+    // Ha nem dobott kivételt, a kapcsolat sikeresen felépült
+} catch (\Throwable $e) {
+    // A Database osztály kezeli a hibát
+}
 
 $router = new Router();
 
