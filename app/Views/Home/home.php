@@ -1,12 +1,2 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title) ?></title>
-</head>
-<body>
-    <h1><?= htmlspecialchars($heading) ?></h1>
-    <p>Ez a tartalom már a <strong>Views/Home/home.php</strong> nézetfájlból töltődött be!</p>
-</body>
-</html>
+<h1><?= htmlspecialchars($heading) ?></h1>
+<p>Ez a tartalom a <strong>Views/home.php</strong> fájlból származik, de már a közös <strong>Layout</strong> keretbe ágyazva jelenik meg!</p>

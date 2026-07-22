@@ -19,6 +19,6 @@ abstract class BaseController
 
         extract($data);
 
-        require_once $viewFile;
+        require_once __DIR__ . '/../Views/layout.php';
     }
 }
