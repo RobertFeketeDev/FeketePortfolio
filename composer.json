@@ -1,0 +1,11 @@
+{
+    "name": "fekete/portfolio",
+    "description": "Custom PHP MVC Framework for Portfolio",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}

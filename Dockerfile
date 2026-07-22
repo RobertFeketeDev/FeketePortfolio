@@ -17,5 +17,10 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/conf-ava
 
 WORKDIR /var/www/html
 
+# Composer telepítése a hivatalos képből
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # A forráskód bemásolása a konténerbe!
 COPY . /var/www/html/
+
+# Composer függőségek és PSR-4 autoloader generálása
+RUN composer install --no-dev --optimize-autoloader
