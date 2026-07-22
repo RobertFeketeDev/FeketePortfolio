@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Core;
-
+// Teszt comment
 class Router 
 {
     protected array $routes = [];
