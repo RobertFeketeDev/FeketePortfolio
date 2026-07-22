@@ -6,15 +6,15 @@ namespace App\Controllers;
 
 use App\Core\BaseController;
 
-class HomeController extends BaseController
+class AboutController extends BaseController
 {
     public function index(): void
     {
         $this->render(
-            'Home', 
+            'About', 
             'index', 
-            [   "title" => "Kezdőlap - Portfólió", 
-                "heading" => "Üdvözöllek a Portfólió Oldalamon!"
+            [   "title" => "Rólam - Portfólió", 
+                "heading" => "Itt olvashatsz rólam"
             ]
         );
     }
