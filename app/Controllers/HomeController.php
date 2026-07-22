@@ -11,7 +11,7 @@ class HomeController extends BaseController
     public function index(): void
     {
         $this->render(
-            'home', 
+            'Home', 
             'home', 
             [   "title" => "Kezdőlap - Portfólió", 
                 "heading" => "Üdvözöllek a Portfólió Oldalamon!"
