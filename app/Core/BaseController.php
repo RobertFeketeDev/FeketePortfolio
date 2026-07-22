@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Core;
+
 abstract class BaseController
 {
     protected function render(string $controller, string $view, array $data = []): void
