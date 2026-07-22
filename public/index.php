@@ -11,7 +11,7 @@ $router = new Router();
 
 // Útvonalak regisztrálása teszt eljárásokkal (Closure)
 $router->get('/', [HomeController::class, 'index']);
-$router->get('/home/szia', [HomeController::class, 'szia']);
+$router->get('/home', [HomeController::class, 'index']);
 
 
 // A kérés továbbítása a Router felé
