@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Ha a kért fájl vagy mappa létezik (pl. képek, CSS), azt közvetlenül szolgálja ki
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Minden más kérést küldjön az index.php-re
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
