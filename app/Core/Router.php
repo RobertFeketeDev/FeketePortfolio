@@ -41,6 +41,18 @@ class Router
                 call_user_func($handler);
                 return;
             }
+            if (is_array($handler) && count($handler) === 2) {
+                [$controllerClass, $methodName] = $handler;
+
+                if (class_exists($controllerClass)) {
+                    $controller = new $controllerClass();
+
+                    if (method_exists($controller, $methodName)) {
+                        $controller->$methodName();
+                        return;
+                    }
+                }
+            }
         }
 
         // Ha az útvonal nem található
