@@ -1,13 +1,12 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /
 
-    # Megállítjuk a szabályt, ha a kérés MÁR az index.php-re mutat
-    RewriteRule ^index\.php$ - [L]
+    # Ha a kért erőforrás egy létező fájl vagy mappa, ne nyúljon hozzá
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
 
-    # Ha a kért fájl vagy mappa létezik (pl. kép, CSS, JS), azt kiszolgálja
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-
-    # Minden MÁS kérést az index.php-re küldünk
-    RewriteRule . index.php [L]
+    # Minden egyéb kérést az index.php-re küldünk
+    RewriteRule ^ index.php [L]
 </IfModule>
