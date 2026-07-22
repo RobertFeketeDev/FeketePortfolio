@@ -1,1 +1,1 @@
-<h1><?= htmlspecialchars($heading) ?></h1>
+<h1><?= e($heading) ?></h1>
