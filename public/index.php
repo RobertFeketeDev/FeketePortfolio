@@ -6,6 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Core\Router;
 use App\Controllers\HomeController;
+use App\Controllers\AboutController;
 
 $router = new Router();
 
