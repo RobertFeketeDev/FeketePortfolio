@@ -10,16 +10,13 @@ class HomeController extends BaseController
 {
     public function index(): void
     {
-        $data = [
-            'title' => 'Kezdőlap - Portfólió',
-            'heading' => 'Üdvözöllek a Portfólió Oldalamon!'
-        ];
-
-        extract($data);
-
-        require_once __DIR__ . '/../Views/Home/home.php';
+        $this->render(
+            'home', 
+            'home', 
+            [   "title" => "Kezdőlap - Portfólió", 
+                "heading" => "Üdvözöllek a Portfólió Oldalamon!"
+            ]
+        );
     }
-
-
     
 }
