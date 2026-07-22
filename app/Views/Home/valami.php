@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1><?= htmlspecialchars($heading) ?></h1>
-    <p>Ez a tartalom már a <strong>Views/home.php</strong> nézetfájlból töltődött be!</p>
+    <p>Ez a tartalom már a <strong>Views/Home/valami.php</strong> nézetfájlból töltődött be!</p>
 </body>
 </html>

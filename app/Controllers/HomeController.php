@@ -15,7 +15,19 @@ class HomeController
 
         extract($data);
 
-        require_once __DIR__ . '/../Views/home.php';
+        require_once __DIR__ . '/../Views/Home/home.php';
+    }
+
+    public function valami(): void
+    {
+        $data = [
+            'title' => 'Kezdőlap/valami - Portfólió',
+            'heading' => 'Üdvözöllek a Portfólió Oldalamon!'
+        ];
+
+        extract($data);
+
+        require_once __DIR__ . '/../Views/Home/valami.php';
     }
 
     
