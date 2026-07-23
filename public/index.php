@@ -14,7 +14,7 @@ try {
     $db = Database::getConnection();
     // Ha nem dobott kivételt, a kapcsolat sikeresen felépült
 } catch (\Throwable $e) {
-    // A Database osztály kezeli a hibát
+    echo "DB hiba";
 }
 
 $router = new Router();
