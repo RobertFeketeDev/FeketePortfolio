@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libzip-dev \
-    && docker-php-ext-install pdo_mysql zip
+    libpq-dev \
+    && docker-php-ext-install pdo_mysql pdo_pgsql zip
 
 # Apache mod_rewrite engedélyezése az MVC routinghoz
 RUN a2enmod rewrite

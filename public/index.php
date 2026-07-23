@@ -10,7 +10,12 @@ use App\Controllers\HomeController;
 use App\Controllers\AboutController;
 
 // Adatbázis-kapcsolat tesztelése
-
+try {
+    $db = Database::getConnection();
+    // Ha nem dobott kivételt, a kapcsolat sikeresen felépült
+} catch (\Throwable $e) {
+    // A Database osztály kezeli a hibát
+}
 
 $router = new Router();
 

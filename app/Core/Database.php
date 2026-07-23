@@ -11,25 +11,25 @@ class Database
 {
     private static ?PDO $instance = null;
 
-    /**
-     * A privát konstruktor megakadályozza a közvetlen példányosítást kívülről (Singleton minta)
-     */
     private function __construct() {}
 
-    /**
-     * Visszaadja az egyetlen létező PDO kapcsolatot
-     */
     public static function getConnection(): PDO
     {
         if (self::$instance === null) {
-            $host = $_ENV['DB_HOST'] ?? 'localhost';
-            $port = $_ENV['DB_PORT'] ?? '3306';
-            $db   = $_ENV['DB_DATABASE'] ?? 'portfolio';
-            $user = $_ENV['DB_USERNAME'] ?? 'root';
-            $pass = $_ENV['DB_PASSWORD'] ?? '';
-            $charset = 'utf8mb4';
+            $driver = $_ENV['DB_DRIVER'] ?? 'pgsql'; // Alapértelmezetten pgsql
+            $host   = $_ENV['DB_HOST'] ?? 'localhost';
+            $port   = $_ENV['DB_PORT'] ?? '5432';
+            $db     = $_ENV['DB_DATABASE'] ?? 'portfolio';
+            $user   = $_ENV['DB_USERNAME'] ?? 'postgres';
+            $pass   = $_ENV['DB_PASSWORD'] ?? '';
 
-            $dsn = "mysql:host={$host};port={$port};dbname={$db};charset={$charset}";
+            // DSN összeállítása a driver alapján
+            $dsn = "{$driver}:host={$host};port={$port};dbname={$db}";
+
+            // PostgreSQL esetén a charset-et a DSN-ben vagy külön opcióként állítjuk
+            if ($driver === 'mysql') {
+                $dsn .= ";charset=utf8mb4";
+            }
 
             $options = [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -42,7 +42,6 @@ class Database
             } catch (PDOException $e) {
                 http_response_code(500);
                 echo "<h1>500 - Adatbázis csatlakozási hiba</h1>";
-                // Éles környezetben nem írunk ki nyers hibaüzenetet jelszavakkal!
                 error_log($e->getMessage());
                 exit;
             }
